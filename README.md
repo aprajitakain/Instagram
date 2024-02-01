@@ -14,8 +14,8 @@ Before running the script, ensure you have the following prerequisites installed
    - Create a table named `notes` within the `Instagram` database.
 
 ## Usage
-1. Clone the repository: `git clone https://github.com/your-username/instagram-notes-app.git`
-2. Navigate to the project directory: `cd instagram-notes-app`
+1. Clone the repository: `git clone https://github.com/aprajitakain/Instagram.git`
+2. Navigate to the project directory: `cd Instagram`
 
 ## Running the Script
 Execute the shell script by running the following command:
