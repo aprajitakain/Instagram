@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 
-@app.route('/api/notes', methods=['GET', 'POST', 'DELETE'])
+@app.route('/api/notes', methods=['GET', 'POST'])
 def handle_notes():
     if request.method == 'GET':
         # Fetch all the notes
@@ -20,8 +20,18 @@ def handle_notes():
         query = 'INSERT INTO notes (text) VALUES (%s) RETURNING *;'
         new_note = execute_query(query, (text,), fetchone=True)
         return jsonify(new_note)
+
+@app.route('/api/notes/<int:note_id>', methods=['PUT', 'DELETE'])
+def handle_single_note(note_id):
+    if request.method == 'PUT':
+        # Update a note
+        data = request.json
+        text = data.get('text', '')
+        query = 'UPDATE notes SET text = %s WHERE id = %s RETURNING *;'
+        updated_note = execute_query(query, (text, note_id), fetchone=True)
+        return jsonify(updated_note)
     elif request.method == 'DELETE':
-        note_id = request.args.get('id')
+        # Delete a note
         query = 'DELETE FROM notes WHERE id = %s;'
         execute_query(query, (note_id,))
         return jsonify({'success': True})
