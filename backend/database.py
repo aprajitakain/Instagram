@@ -1,9 +1,9 @@
 import psycopg2
 
 db_params = {
-    'dbname': 'instagram',
-    'user': 'aprajitakain',
-    'password': '15Sep1995%%?',
+    'dbname': 'Instagram',
+    'user': '',
+    'password': '',
     'host': 'localhost',
     'port': '5432',
 }

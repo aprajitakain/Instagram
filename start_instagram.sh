@@ -15,10 +15,10 @@ cleanup() {
     # Kill the Flask server process
     pkill -f "python3 server.py"
 
-    # Kill the React server process on port 3000
-    kill_process_on_port 3000
-     # Kill the React server process on port 5000
+    # Kill the React server process on port 5000
     kill_process_on_port 5000
+     # Kill the React server process on port 3000
+    kill_process_on_port 3000
 
 }
 
